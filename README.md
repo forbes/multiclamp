@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
 ### Requirements
 The element provided must be the DOM node containing the text to be truncated (no support for nested elements). Also, the styling for the element must include the following:
 - `display` - either `block` or `inline-block`
-- `line-height` - provide a value
+- `line-height` - provide a value in pixels
 - `max-height` OR `height` - should equal the value for `line-height` * number of lines
 - `overflow: hidden;`
 
