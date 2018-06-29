@@ -1,7 +1,7 @@
 {
   "name": "multiclamp",
   "version": "1.0.0",
-  "description": "Truncate multiple lines of text by adding ellipsis.",
+  "description": "A small, performant utility for truncating multiple lines of text in a single DOM element.",
   "main": "dist/bundle.js",
   "unpkg": "dist/bundle.js",
   "scripts": {
