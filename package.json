@@ -13,8 +13,8 @@
     "lint:fix": "eslint src --fix",
     "watch": "webpack -w"
   },
-  "author": "Aaron Romel",
-  "license": "ISC",
+  "author": "Aaron Romel <aromel@forbes.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
