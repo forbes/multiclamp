@@ -1,0 +1,29 @@
+{
+  "name": "multiclamp",
+  "version": "1.0.0",
+  "description": "Truncate multiple lines of text by adding ellipsis.",
+  "main": "dist/bundle.js",
+  "unpkg": "dist/bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --open",
+    "test": "npm run lint",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "watch": "webpack -w"
+  },
+  "author": "Aaron Romel",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

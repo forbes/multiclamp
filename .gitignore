@@ -1,0 +1,15 @@
+# packages
+node_modules/
+
+#intellij
+.idea/
+
+# OS X
+.DS_Store
+
+# log files
+*.log
+
+# VS Code Workspace Settings
+.vscode/
+nbproject/

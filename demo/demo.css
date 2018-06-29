@@ -1,0 +1,7 @@
+.multi-clamp {
+    line-height: 24px;
+    margin: 50px auto;
+    max-height: 72px;
+    overflow: hidden;
+    width: 50%;
+}
