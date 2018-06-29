@@ -2,15 +2,12 @@
 
 A small, performant utility for truncating multiple lines of text in a single DOM element.
 
+* [Installation](#installation)
 * [Usage](#usage)
 * [Dev Requirements](#dev-requirements)
-* [Installation](#installation)
 * [Development](#development)
 * [Additional Information](#additional-information)
 * [Contributors](#contributors)
-
-## Dev Requirements
-- [Node](https://nodejs.org/en/)
 
 ## Installation
 `npm install`
@@ -32,6 +29,9 @@ The element provided must be the DOM node containing the text to be truncated (n
 - `line-height` - provide a value
 - `max-height` OR `height` - should equal the value for `line-height` * number of lines
 - `overflow: hidden;`
+
+## Dev Requirements
+- [Node](https://nodejs.org/en/)
 
 ## Development
 Webpack dev server is used to bundle and reload a local server with demo project.
