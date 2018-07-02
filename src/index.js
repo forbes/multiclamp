@@ -27,9 +27,8 @@ class MultiClamp {
       fontWeight,
       lineHeight,
     } = getComputedStyle(this.element);
-    let maxHeight = 0;
 
-    maxHeight = (parseInt(lineHeight, 10) || 0) * this.numLines;
+    const maxHeight = (parseInt(lineHeight, 10) || 0) * this.numLines;
 
     if (this.element.scrollHeight > maxHeight || this.element.dataset.fullText) {
       const text = this.element.dataset.fullText || this.element.innerText;
