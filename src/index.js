@@ -2,12 +2,9 @@ class MultiClamp {
   constructor(element, numLines) {
     this.element = element;
     this.numLines = numLines;
-
-    const textCanvas = document.createElement('canvas');
-    this.textCtx = textCanvas.getContext('2d');
-
     this.prevWidth = 0;
     this.prevHeight = 0;
+    this.textCtx = false;
   }
 
   init() {
@@ -16,6 +13,8 @@ class MultiClamp {
       this.element.style['-webkit-box-orient'] = 'vertical';
       this.element.style['-webkit-line-clamp'] = this.numLines;
     } else {
+      const textCanvas = document.createElement('canvas');
+      this.textCtx = textCanvas.getContext('2d');
       this.clamp();
       requestAnimationFrame(this.resize.bind(this));
     }

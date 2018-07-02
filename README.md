@@ -2,18 +2,17 @@
 
 A small, performant utility for truncating multiple lines of text in a single DOM element.
 
-* [Installation](#installation)
 * [Usage](#usage)
 * [Dev Requirements](#dev-requirements)
 * [Development](#development)
 * [Additional Information](#additional-information)
 * [Contributors](#contributors)
 
-## Installation
-`npm install`
-
 ## Usage
-Import the multiClamp function from node_modules and pass the element that contains the text that should be truncated along with the number of lines. If no number of lines is provided it will default to 2.
+Install via npm:
+`npm install --save multiclamp`
+
+Import the multiClamp function and pass the element that contains the text that should be truncated along with the number of lines. If no number of lines is provided it will default to 2.
 ```
 import multiClamp from 'multiClamp';
 
@@ -36,6 +35,9 @@ The element provided must be the DOM node containing the text to be truncated (n
 ## Development
 Webpack dev server is used to bundle and reload a local server with demo project.
 
+To install dependencies:
+`npm install`
+
 To start the server:
 `npm run start`
 
@@ -44,7 +46,9 @@ Assuming you have no errors, you should be able to see demo page your local host
 Making changes to the source file `src/index.js` or the demo file `demo/demo.js` will trigger a bundle and reload of the page.
 
 ## Additional Information
-The function will attempt to use the css property `-webkit-line-clamp` if supported by the browser. If not it will fall back to a javascript implementation that relies on the HTML canvas api for calculating text widths and `requestAnimationFrame()` for recalculation on window resize, both of which are widely supported by most browsers and relatively performant compared to other javascript implementations. For details on browser support see [Canvas Browser Support](https://caniuse.com/#feat=canvas) and [requestAnimationFrame() Support](https://caniuse.com/#feat=canvas).
+The function will attempt to use the css property `-webkit-line-clamp` if supported by the browser. If not it will fall back to a javascript implementation that relies on the HTML canvas api for calculating text widths and `requestAnimationFrame()` to recalculate when the element resizes, both of which are widely supported by most browsers and relatively performant compared to other javascript implementations that rely on multiple re-layouts of the page. For details on browser support see [Canvas browser support](https://caniuse.com/#feat=canvas) and [requestAnimationFrame() browser support](https://caniuse.com/#feat=canvas).
 
 ## Contributors
 * **Aaron Romel** - aromel@forbes.com
+* **Joe Pietruch** - jpietruch@forbes.com
+
