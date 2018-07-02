@@ -67,8 +67,7 @@ class MultiClamp {
   }
 
   resize() {
-    const { width } = this.element.getBoundingClientRect();
-    const { height } = this.element.getBoundingClientRect();
+    const { width, height } = this.element.getBoundingClientRect();
 
     if (this.prevWidth !== width || this.prevHeight !== height) {
       this.clamp();
