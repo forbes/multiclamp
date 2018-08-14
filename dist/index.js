@@ -1,9 +1,4 @@
 class MultiClamp {
-	/**
-	 * Construct a MultiClamp object that can clamp text
-	 * @param {HTMLElement} element the element that wraps the text to be truncated
-	 * @param {number} numLines the max number of lines the text can fill
-	 */
 	constructor(element, numLines) {
 		this.element = element;
 		this.numLines = numLines;
@@ -12,10 +7,6 @@ class MultiClamp {
 		this.textCtx = false;
 	}
 
-	/**
-	 * Attempt to use webkit line clamp functionality. If it does not exist then fall back to
-	 * javascript clamp implementation
-	 */
 	init() {
 		if ('-webkit-line-clamp' in document.body.style) {
 			this.element.style.display = '-webkit-box';
@@ -29,15 +20,6 @@ class MultiClamp {
 		}
 	}
 
-	/**
-	 * Element to be clamped must have the following styles:
-	 * 	- `display` - either `block` or `inline-block`
-	 *	- `line-height` - provide a value in pixels
-	 *	- `max-height` OR `height` - should equal the value for `line-height` * number of lines
-	 *	- `overflow: hidden;`
-	 *	With these conditions overflow-y would indicate text that needs to be truncated. In this case caclulate
-	 *	the width of the text using canvas api, truncate text and apply ellipsis to fit in container.
-	 */
 	clamp() {
 		const {
 			fontFamily,
@@ -83,10 +65,6 @@ class MultiClamp {
 		}
 	}
 
-	/**
-	 * resize function will determine if the window size has changed, in which case the clamp may need to
-	 * be recalculated
-	 */
 	resize() {
 		const { width, height } = this.element.getBoundingClientRect();
 
@@ -100,11 +78,6 @@ class MultiClamp {
 	}
 }
 
-/**
- * muliclamp exposes package functionality to app consuming it
- * @param {HTMLElement} element the element containing the text to be clamped
- * @param {number} numLines the max number of lines the text can fill
- */
 export default function multiclamp(element, numLines = 2) {
 	const mc = new MultiClamp(element, numLines);
 	mc.init();
