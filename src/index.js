@@ -106,6 +106,7 @@ class MultiClamp {
  * @param {number} numLines the max number of lines the text can fill
  */
 export default function multiclamp(element, numLines = 2) {
-	const mc = new MultiClamp(element, numLines);
+	const clampLines = numLines <= 0 ? 2 : numLines;
+	const mc = new MultiClamp(element, clampLines);
 	mc.init();
 }
