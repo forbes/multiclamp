@@ -10,6 +10,12 @@ class MultiClamp {
 		this.prevWidth = 0;
 		this.prevHeight = 0;
 		this.textCtx = false;
+
+		this.LINE_CLAMP_RULES = {
+			LINE_CLAMP: '-webkit-line-clamp',
+			BOX: '-webkit-box',
+			BOX_ORIENT: '-webkit-box-orient',
+		};
 	}
 
 	/**
@@ -17,10 +23,10 @@ class MultiClamp {
 	 * javascript clamp implementation
 	 */
 	init() {
-		if ('-webkit-line-clamp' in document.body.style) {
-			this.element.style.display = '-webkit-box';
-			this.element.style['-webkit-box-orient'] = 'vertical';
-			this.element.style['-webkit-line-clamp'] = this.numLines;
+		if (this.LINE_CLAMP_RULES.LINE_CLAMP in document.body.style) {
+			this.element.style.display = this.LINE_CLAMP_RULES.BOX;
+			this.element.style[this.LINE_CLAMP_RULES.BOX_ORIENT] = 'vertical';
+			this.element.style[this.LINE_CLAMP_RULES.LINE_CLAMP] = this.numLines;
 		} else {
 			const textCanvas = document.createElement('canvas');
 			this.textCtx = textCanvas.getContext('2d');
@@ -106,6 +112,7 @@ class MultiClamp {
  * @param {number} numLines the max number of lines the text can fill
  */
 export default function multiclamp(element, numLines = 2) {
-	const mc = new MultiClamp(element, numLines);
+	const clampLines = numLines <= 0 ? 2 : numLines;
+	const mc = new MultiClamp(element, clampLines);
 	mc.init();
 }

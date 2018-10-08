@@ -1,6 +1,6 @@
-import multiClamp from '../src';
+import multiclamp from '../src';
 
 window.addEventListener('load', () => {
 	const clampThis = document.querySelector('.multi-clamp');
-	multiClamp(clampThis, 3);
+	multiclamp(clampThis, 3);
 });

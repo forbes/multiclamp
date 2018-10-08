@@ -7,5 +7,13 @@
         "indent": ["error", "tab"],
         "max-len": ["error", 140],
         "no-tabs": "off"
+    },
+    "globals": {
+        "jasmine": false,
+        "spyOn": false,
+        "test": false,
+        "expect": false,
+        "beforeEach": false,
+        "describe": false
     }
 }
