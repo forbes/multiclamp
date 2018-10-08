@@ -1,5 +1,5 @@
 {
-  "name": "multiclamp",
+  "name": "@forbesmedia/multiclamp",
   "version": "1.0.0",
   "description": "A small, performant utility for truncating multiple lines of text in a single DOM element.",
   "main": "index.js",
