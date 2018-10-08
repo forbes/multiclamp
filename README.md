@@ -10,7 +10,7 @@ A small, performant utility for truncating multiple lines of text in a single DO
 
 ## Usage
 Install via npm:
-`npm install --save multiclamp`
+`npm install --save @forbesmedia/multiclamp`
 
 Import the multiClamp function and pass the element that contains the text that should be truncated along with the number of lines. If no number of lines is provided it will default to 2.
 ```js
