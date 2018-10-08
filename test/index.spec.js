@@ -19,32 +19,38 @@ nonClampElement.style.maxHeight = '72px';
 nonClampElement.style.overflow = 'hidden';
 nonClampElement.style.maxWidth = '500px';
 
+const LINE_CLAMP_RULES = {
+	LINE_CLAMP: '-webkit-line-clamp',
+	BOX: '-webkit-box',
+	BOX_ORIENT: '-webkit-box-orient',
+};
+
 describe('webkit initialization', () => {
 	beforeEach(() => {
-		document.body.style['-webkit-line-clamp'] = 0;
+		document.body.style[LINE_CLAMP_RULES.LINE_CLAMP] = 0;
 	});
 
 	test('adds webkit line clamp styles if possible', () => {
 		multiclamp(clampElement, 3);
 
-		expect(clampElement.style.display).toBe('-webkit-box');
-		expect(clampElement.style['-webkit-box-orient']).toBe('vertical');
-		expect(clampElement.style['-webkit-line-clamp']).toBe(3);
+		expect(clampElement.style.display).toBe(LINE_CLAMP_RULES.BOX);
+		expect(clampElement.style[LINE_CLAMP_RULES.BOX_ORIENT]).toBe('vertical');
+		expect(clampElement.style[LINE_CLAMP_RULES.LINE_CLAMP]).toBe(3);
 	});
 
 	test('defaults to 2 lines if no number is provided', () => {
 		multiclamp(clampElement);
-		expect(clampElement.style['-webkit-line-clamp']).toBe(2);
+		expect(clampElement.style[LINE_CLAMP_RULES.LINE_CLAMP]).toBe(2);
 	});
 
 	test('defaults to 2 lines if zero is provided', () => {
 		multiclamp(clampElement, 0);
-		expect(clampElement.style['-webkit-line-clamp']).toBe(2);
+		expect(clampElement.style[LINE_CLAMP_RULES.LINE_CLAMP]).toBe(2);
 	});
 
 	test('defaults to 2 lines if negative number is provided', () => {
 		multiclamp(clampElement, -3);
-		expect(clampElement.style['-webkit-line-clamp']).toBe(2);
+		expect(clampElement.style[LINE_CLAMP_RULES.LINE_CLAMP]).toBe(2);
 	});
 });
 
@@ -55,7 +61,7 @@ describe('canvas initialization', () => {
 	};
 
 	beforeEach(() => {
-		delete document.body.style['-webkit-line-clamp'];
+		delete document.body.style[LINE_CLAMP_RULES.LINE_CLAMP];
 		spyOn(document, 'createElement').and.returnValue(mockCanvas);
 	});
 
