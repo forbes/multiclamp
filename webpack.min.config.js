@@ -3,12 +3,10 @@ const path = require('path');
 module.exports = [
 	{
 		mode: 'production',
-		entry: './src/index.js',
+		entry: './src/multiclamp.js',
 		output: {
 			path: path.resolve(__dirname, 'dist'),
-			filename: 'index.js',
-			library: 'multiclamp',
-			libraryTarget: 'umd',
+			filename: 'multiclamp.min.js',
 		},
 		module: {
 			rules: [

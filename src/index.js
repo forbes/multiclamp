@@ -111,10 +111,8 @@ class MultiClamp {
  * @param {HTMLElement} element the element containing the text to be clamped
  * @param {number} numLines the max number of lines the text can fill
  */
-function multiclamp(element, numLines = 2) {
+export default function multiclamp(element, numLines = 2) {
 	const clampLines = numLines <= 0 ? 2 : numLines;
 	const mc = new MultiClamp(element, clampLines);
 	mc.init();
 }
-
-module.exports = multiclamp;
