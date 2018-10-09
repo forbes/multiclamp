@@ -1,11 +1,14 @@
 {
   "name": "@forbesmedia/multiclamp",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "A small, performant utility for truncating multiple lines of text in a single DOM element.",
   "main": "dist/index.js",
   "unpkg": "dist/multiclamp.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rimraf dist/* && webpack",
+    "build": "rimraf dist/* && webpack && webpack --config webpack.min.config.js",
     "build:demo": "rimraf demo/dist/* && webpack --mode development",
     "prepublish": "npm test && npm run build",
     "pretest": "npm run lint",
