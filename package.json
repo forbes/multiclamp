@@ -9,7 +9,7 @@
     "build:demo": "rimraf demo/dist/* && webpack --mode development",
     "prepublish": "npm test && npm run build",
     "pretest": "npm run lint",
-    "start": "rimraf demo/dist/* && webpack-dev-server --open --mode development",
+    "start": "rimraf dist/* && webpack -w --mode development",
     "test": "jest",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
@@ -21,6 +21,7 @@
     "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.0.1",
     "eslint": "^5.3.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -28,8 +29,7 @@
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.6.2",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-cli": "^3.1.0"
   },
   "repository": {
     "type": "git",
