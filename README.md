@@ -12,13 +12,13 @@ A small, performant utility for truncating multiple lines of text in a single DO
 Install via npm:
 `npm install --save @forbesmedia/multiclamp`
 
-Import the multiClamp function and pass the element that contains the text that should be truncated along with the number of lines. If no number of lines is provided it will default to 2.
+Import the multiClamp function and pass the element that contains the text that should be truncated. Passing in a nested element may result in undesired behavior, the element passed should contain only text. If no element is provided the function will do nothing. The second argument is the number of lines to clamp the text to. If no number of lines is provided it will default to 2. The third argument is boolean for whether or not to recalculate the clampped text when the element resizes. This may cause the page to crash when a large number of elements are resized. The default value for the resize parameter is true if not provided.
 ```js
 import multiclamp from '@forbesmedia/multiclamp';
 
 window.addEventListener('load', () => {
     const el = document.querySelector('#clamp-this');
-    multiClamp(el, 3);
+    multiClamp(el, 3, true);
 });
 ```
 
