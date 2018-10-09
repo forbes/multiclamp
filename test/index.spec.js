@@ -66,14 +66,20 @@ describe('canvas initialization', () => {
 	});
 
 	test('canvas element is created', () => {
-		multiclamp(clampElement, 3);
+		multiclamp(clampElement, 3, true);
 		expect(document.createElement).toHaveBeenCalledWith('canvas');
 		expect(getContextSpy).toHaveBeenCalledWith('2d');
 	});
 
 	test('requestAnimationFrame is called', () => {
 		spyOn(window, 'requestAnimationFrame');
-		multiclamp(clampElement, 3);
+		multiclamp(clampElement, 3, true);
 		expect(window.requestAnimationFrame).toHaveBeenCalledWith(jasmine.any(Function));
+	});
+
+	test('requestAnimationFrame is not called if resize is false', () => {
+		spyOn(window, 'requestAnimationFrame');
+		multiclamp(clampElement, 3, false);
+		expect(window.requestAnimationFrame).not.toHaveBeenCalled();
 	});
 });

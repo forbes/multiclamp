@@ -3,10 +3,12 @@ class MultiClamp {
 	 * Construct a MultiClamp object that can clamp text
 	 * @param {HTMLElement} element the element that wraps the text to be truncated
 	 * @param {number} numLines the max number of lines the text can fill
+	 * @param {boolean} allowResize whether or not to recalculate when element resizes
 	 */
-	constructor(element, numLines) {
+	constructor(element, numLines, allowResize) {
 		this.element = element;
 		this.numLines = numLines;
+		this.allowResize = allowResize;
 		this.prevWidth = 0;
 		this.prevHeight = 0;
 		this.textCtx = false;
@@ -31,7 +33,9 @@ class MultiClamp {
 			const textCanvas = document.createElement('canvas');
 			this.textCtx = textCanvas.getContext('2d');
 			this.clamp();
-			requestAnimationFrame(this.resize.bind(this));
+			if (this.allowResize) {
+				requestAnimationFrame(this.resize.bind(this));
+			}
 		}
 	}
 
@@ -94,14 +98,15 @@ class MultiClamp {
 	 * be recalculated
 	 */
 	resize() {
+		if (!this.allowResize) {
+			return;
+		}
 		const { width, height } = this.element.getBoundingClientRect();
-
 		if (this.prevWidth !== width || this.prevHeight !== height) {
 			this.clamp();
+			this.prevWidth = width;
+			this.prevHeight = height;
 		}
-
-		this.prevWidth = width;
-		this.prevHeight = height;
 		requestAnimationFrame(this.resize.bind(this));
 	}
 }
@@ -110,9 +115,11 @@ class MultiClamp {
  * muliclamp exposes package functionality to app consuming it
  * @param {HTMLElement} element the element containing the text to be clamped
  * @param {number} numLines the max number of lines the text can fill
+ * @param {boolean} allowResize whether or not to recalculate when element resizes
  */
-export default function multiclamp(element, numLines = 2) {
+export default function multiclamp(element, numLines = 2, allowResize = false) {
+	if (!element) return;
 	const clampLines = numLines <= 0 ? 2 : numLines;
-	const mc = new MultiClamp(element, clampLines);
+	const mc = new MultiClamp(element, clampLines, allowResize);
 	mc.init();
 }
