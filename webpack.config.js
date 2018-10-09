@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = [
 	{
 		mode: 'production',
-		entry: './src/index.js',
+		entry: './src/multiclamp.js',
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: 'multiclamp.min.js',

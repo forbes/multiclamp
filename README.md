@@ -22,10 +22,10 @@ window.addEventListener('load', () => {
 });
 ```
 
-If you don't have access to `import` you can include a minified version of the package as a script tag which will attach the multiClamp function to the window.
+If you don't have access to `import` you can include a minified version of the package as a script tag which will attach the `multiclamp` function to the window. Ensure this script tag is included before any other javascript that will use the multiclamp function.
 
 ```html
-<script type="text/javascript" src="node_modules/multiclamp/multiclamp.min.js"></script>
+<script type="text/javascript" src="node_modules/@forbesmedia/multiclamp/dist/multiclamp.min.js"></script>
 ```
 
 ### Requirements
