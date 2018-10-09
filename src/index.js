@@ -117,7 +117,7 @@ class MultiClamp {
  * @param {number} numLines the max number of lines the text can fill
  * @param {boolean} allowResize whether or not to recalculate when element resizes
  */
-export default function multiclamp(element, numLines = 2, allowResize = true) {
+export default function multiclamp(element, numLines = 2, allowResize = false) {
 	if (!element) return;
 	const clampLines = numLines <= 0 ? 2 : numLines;
 	const mc = new MultiClamp(element, clampLines, allowResize);
