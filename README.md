@@ -45,7 +45,7 @@ To install dependencies:
 To watch code changes:
 `npm run start`
 
-Open the `index.html` file in browser. Making changes to the source files will trigger a bundle. Reload the page to see changes.
+Open the `index.html` file in browser. Making changes to the source files will trigger a build. Reload the page to see changes.
 
 ## Additional Information
 The function will attempt to use the css property `-webkit-line-clamp` if supported by the browser. If not it will fall back to a javascript implementation that relies on the HTML canvas api for calculating text widths and `requestAnimationFrame()` to recalculate when the element resizes, both of which are widely supported by most browsers and relatively performant compared to other javascript implementations that rely on multiple re-layouts of the page. For details on browser support see [Canvas browser support](https://caniuse.com/#feat=canvas) and [requestAnimationFrame() browser support](https://caniuse.com/#feat=canvas).
